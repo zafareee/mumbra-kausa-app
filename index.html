@@ -1,0 +1,126 @@
+HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mumbra Kausa App</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f6fb;
+      color: #172033;
+    }
+    header {
+      background: #087f5b;
+      color: white;
+      padding: 24px 18px;
+      border-radius: 0 0 22px 22px;
+    }
+    header h1 { margin: 0 0 8px; }
+    header p { margin: 0; }
+    main { padding: 18px; }
+    .search {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+    h2 { font-size: 20px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .card {
+      background: white;
+      padding: 18px 12px;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px #0000000b;
+      text-align: center;
+    }
+    .emoji { font-size: 30px; }
+    .card h3 { font-size: 16px; margin: 10px 0 6px; }
+    .card p { font-size: 13px; color: #667085; margin: 0; }
+    .notice {
+      background: #fff4d6;
+      padding: 14px;
+      border-radius: 12px;
+      margin-top: 18px;
+      font-size: 14px;
+    }
+    footer { text-align: center; padding: 20px; color: #667085; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🏡 Mumbra Kausa</h1>
+    <p>Apna area, apni community ❤️</p>
+  </header>
+
+  <main>
+    <input class="search" id="search"
+      placeholder="🔍 Search services..."
+      oninput="filterCards()">
+
+    <h2>Explore Your Area</h2>
+
+    <div class="grid" id="grid">
+      <div class="card">
+        <div class="emoji">🏥</div>
+        <h3>Hospitals</h3>
+        <p>Health services</p>
+      </div>
+      <div class="card">
+        <div class="emoji">🍔</div>
+        <h3>Food & Shops</h3>
+        <p>Local shopping</p>
+      </div>
+      <div class="card">
+        <div class="emoji">🚌</div>
+        <h3>Transport</h3>
+        <p>Travel information</p>
+      </div>
+      <div class="card">
+        <div class="emoji">📢</div>
+        <h3>Local News</h3>
+        <p>Community updates</p>
+      </div>
+      <div class="card">
+        <div class="emoji">🎓</div>
+        <h3>Education</h3>
+        <p>Schools and learning</p>
+      </div>
+      <div class="card">
+        <div class="emoji">🛠️</div>
+        <h3>Local Services</h3>
+        <p>Help around your area</p>
+      </div>
+    </div>
+
+    <div class="notice">
+      ℹ️ Local listings and announcements will be
+      added after verification.
+    </div>
+  </main>
+
+  <footer>Made with ❤️ for Mumbra & Kausa</footer>
+
+  <script>
+    function filterCards() {
+      const query = document.getElementById('search')
+        .value.toLowerCase();
+      document.querySelectorAll('.card').forEach(card => {
+        card.style.display =
+          card.innerText.toLowerCase().includes(query)
+            ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
